@@ -26,7 +26,7 @@ cd to tree top and run:
 
 * Required METIS files:
   * C header: metis.h
-  * Library: libmetis.so or libmetis.a
+  * Library: libmetis.so
 
 * option for extconf.rb
 
