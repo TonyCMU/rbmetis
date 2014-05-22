@@ -12,23 +12,26 @@ libdirs |= %w[/usr/lib64 /usr/lib /usr/local/lib]
 incdirs = $CPPFLAGS.scan(/(?<=^-I|\s-I)\S+/)
 incdirs |= %w[/usr/include /usr/local/include]
 
-libmetis = %w[libmetis.so libmetis.a]
-
+print "searching libmetis.so ..."
 libdirs.each do |dir|
-  libmetis.each do |name|
-    path = File.join(dir,name)
-    if File.exist?(path)
-      $libmetis = path
-      break
-    end
+  path = File.join(dir,"libmetis.so")
+  if File.exist?(path)
+    $libmetis = path
+    break
   end
-  break if $libmetis
+end
+if $libmetis
+  puts "found"
+else
+  puts "not found"
+  exit
 end
 
+print "searching metis.h ..."
 incdirs.each do |dir|
   path = File.join(dir,'metis.h')
   if File.exist?(path)
-    puts "reading #{path}"
+    $metis_h = path
     open(path,'r').each do |line|
       case line
       when /^\s*#define\s+IDXTYPEWIDTH\s+(\d+)/
@@ -40,17 +43,25 @@ incdirs.each do |dir|
     break
   end
 end
+if $metis_h
+  puts "found"
+else
+  puts "not found"
+  exit
+end
 
-conf_file = File.join("..","lib","rbmetis","config.rb")
-print "creating #{conf_file}\n"
-open(conf_file, "w") do |f|
-  f.puts <<EOL
-module RbMetis
+config = <<EOL
   IDXTYPEWIDTH=#{$idxtypewidth}
   REALTYPEWIDTH=#{$realtypewidth}
   LIBMETIS='#{$libmetis}'
-end
 EOL
+puts "config options:"
+puts config
+
+conf_file = File.join("..","lib","rbmetis","config.rb")
+print "writing #{conf_file}\n"
+open(conf_file, "w") do |f|
+  f.puts "module RbMetis\n"+config+"end"
 end
 
 create_makefile("rbmetis")
