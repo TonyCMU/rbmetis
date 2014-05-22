@@ -53,14 +53,14 @@ module RbMetis
     case REALTYPEWIDTH
     when 32
       def alloc_real_ary(ary)
-        a = FFI::MemoryPointer.new(:float32, ary.size)
-        a.write_array_of_float32(ary)
+        a = FFI::MemoryPointer.new(4, ary.size)
+        a.put_array_of_float32(0, ary)
         a
       end
     when 64
       def alloc_real_ary(ary)
-        a = FFI::MemoryPointer.new(:float64, ary.size)
-        a.write_array_of_float64(ary)
+        a = FFI::MemoryPointer.new(8, ary.size)
+        a.put_array_of_float64(0, ary)
         a
       end
     end
