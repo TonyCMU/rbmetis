@@ -37,6 +37,7 @@ cd to tree top and run:
 * How to pass option to extconf.rb
 
         $ gem install rbmetis -- --with-metis-dir=/opt/metis
+        or
         $ ruby setup.rb -- --with-metis-dir=/opt/metis
 
 ## Usage
