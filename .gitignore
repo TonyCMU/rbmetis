@@ -28,3 +28,5 @@ tmp
 rhosts
 spec/*/*.dat
 spec/*/*.csv
+ext/Makefile
+lib/rbmetis/config.rb
