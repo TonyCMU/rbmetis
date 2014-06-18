@@ -16,7 +16,7 @@ module RbMetis
   #/*! Operation type codes */
   OP_PMETIS,
   OP_KMETIS,
-  OP_OMETIS = 0..2
+  OP_OMETIS = (0..2).to_a
 
   #/*! Options codes (i.e., options[]) */
   OPTION_PTYPE,
@@ -44,32 +44,32 @@ module RbMetis
   OPTION_NOOUTPUT,
   OPTION_BALANCE,
   OPTION_GTYPE,
-  OPTION_UBVEC = 0..25
+  OPTION_UBVEC = (0..25).to_a
 
   # /*! Partitioning Schemes */
   PTYPE_RB,
-  PTYPE_KWAY = 0..1
+  PTYPE_KWAY = (0..1).to_a
 
   # /*! Graph types for meshes */
   GTYPE_DUAL,
-  GTYPE_NODAL = 0..1
+  GTYPE_NODAL = (0..1).to_a
 
   # /*! Coarsening Schemes */
   CTYPE_RM,
-  CTYPE_SHEM = 0..1
+  CTYPE_SHEM = (0..1).to_a
 
   # /*! Initial partitioning schemes */
   IPTYPE_GROW,
   IPTYPE_RANDOM,
   IPTYPE_EDGE,
   IPTYPE_NODE,
-  IPTYPE_METISRB = 0..4
+  IPTYPE_METISRB = (0..4).to_a
 
   # /*! Refinement schemes */
   RTYPE_FM,
   RTYPE_GREEDY,
   RTYPE_SEP2SIDED,
-  RTYPE_SEP1SIDED = 0..3
+  RTYPE_SEP1SIDED = (0..3).to_a
 
   # /*! Debug Levels */
   DBG_INFO       = 1
@@ -86,7 +86,7 @@ module RbMetis
   # /* Types of objectives */
   OBJTYPE_CUT,
   OBJTYPE_VOL,
-  OBJTYPE_NODE = 0..2
+  OBJTYPE_NODE = (0..2).to_a
 
   # @visibility private
   module Lib
