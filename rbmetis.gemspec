@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Masahiro TANAKA"]
   spec.email         = ["masa16.tanaka@gmail.com"]
   spec.summary       = %q{FFI wrapper of METIS graph partitioning library}
-  spec.description   = %q{FFI wrapper of METIS graph partitioning library version: 5.1.0 http://glaros.dtc.umn.edu/gkhome/metis/metis/overview}
+  spec.description   = %q{FFI wrapper of METIS graph partitioning library version: 5.1.0 http://www.cs.umn.edu/~metis/}
   spec.homepage      = "https://github.com/masa16/rbmetis"
   spec.license       = "Apache License 2.0"
 
