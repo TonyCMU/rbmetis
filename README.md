@@ -1,6 +1,6 @@
 # RbMetis
 
-FFI wrapper of [METIS graph partitioning library](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+FFI wrapper of [METIS graph partitioning library](http://www.cs.umn.edu/~metis/)
 
 * [GitHub](https://github.com/masa16/rbmetis)
 * [RubyGems](https://rubygems.org/gems/rbmetis)
